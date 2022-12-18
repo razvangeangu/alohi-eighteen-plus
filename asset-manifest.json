@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.f51d5156.css",
-    "main.js": "/static/js/main.116dc355.js",
-    "static/js/935.6bdda721.chunk.js": "/static/js/935.6bdda721.chunk.js",
-    "static/js/243.8bb87b14.chunk.js": "/static/js/243.8bb87b14.chunk.js",
-    "static/js/522.4b823bd6.chunk.js": "/static/js/522.4b823bd6.chunk.js",
-    "static/js/388.d54dc7ad.chunk.js": "/static/js/388.d54dc7ad.chunk.js",
-    "index.html": "/index.html",
-    "static/media/fax_black_24dp.svg": "/static/media/fax_black_24dp.3e23033cfd0b2d289554adaa34f2d011.svg",
-    "static/media/outbox_black_24dp.svg": "/static/media/outbox_black_24dp.e333521443c4f929a0e98e68475dec83.svg",
-    "static/media/contacts_black_24dp.svg": "/static/media/contacts_black_24dp.de82f4d7e03358b278c41459b84a347f.svg",
-    "static/media/archive_black_24dp.svg": "/static/media/archive_black_24dp.8765bade8697a0981bebae7b3e6df3ed.svg",
-    "static/media/inbox_black_24dp.svg": "/static/media/inbox_black_24dp.f563a65c7a7378d1d31b8c0e040b46fd.svg"
+    "main.css": "/alohi-eighteen-plus/static/css/main.f51d5156.css",
+    "main.js": "/alohi-eighteen-plus/static/js/main.f411e5e5.js",
+    "static/js/935.6bdda721.chunk.js": "/alohi-eighteen-plus/static/js/935.6bdda721.chunk.js",
+    "static/js/243.8bb87b14.chunk.js": "/alohi-eighteen-plus/static/js/243.8bb87b14.chunk.js",
+    "static/js/522.4b823bd6.chunk.js": "/alohi-eighteen-plus/static/js/522.4b823bd6.chunk.js",
+    "static/js/388.d54dc7ad.chunk.js": "/alohi-eighteen-plus/static/js/388.d54dc7ad.chunk.js",
+    "index.html": "/alohi-eighteen-plus/index.html",
+    "static/media/fax_black_24dp.svg": "/alohi-eighteen-plus/static/media/fax_black_24dp.3e23033cfd0b2d289554adaa34f2d011.svg",
+    "static/media/outbox_black_24dp.svg": "/alohi-eighteen-plus/static/media/outbox_black_24dp.e333521443c4f929a0e98e68475dec83.svg",
+    "static/media/contacts_black_24dp.svg": "/alohi-eighteen-plus/static/media/contacts_black_24dp.de82f4d7e03358b278c41459b84a347f.svg",
+    "static/media/archive_black_24dp.svg": "/alohi-eighteen-plus/static/media/archive_black_24dp.8765bade8697a0981bebae7b3e6df3ed.svg",
+    "static/media/inbox_black_24dp.svg": "/alohi-eighteen-plus/static/media/inbox_black_24dp.f563a65c7a7378d1d31b8c0e040b46fd.svg"
   },
   "entrypoints": [
     "static/css/main.f51d5156.css",
-    "static/js/main.116dc355.js"
+    "static/js/main.f411e5e5.js"
   ]
 }
