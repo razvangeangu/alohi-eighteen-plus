@@ -2,7 +2,23 @@
   "appName": "Alohi Eighteen Plus",
   "description": "An MVP for a web app for a faxes system.",
   "routes": {
-    "home": "Home"
+    "dashboard": "Dashboard",
+    "account": "Account",
+    "inbox": "Inbox",
+    "sent": "Sent",
+    "spam": "Spam",
+    "numbers": "Numbers",
+    "contacts": "Contacts"
+  },
+  "inbox": {
+    "table": {
+      "status": "Status",
+      "from": "From",
+      "to": "To",
+      "startTime": "Start Time",
+      "pages": "Pages",
+      "cost": "Cost"
+    }
   },
   "notFound": {
     "title": "Page Not Found",

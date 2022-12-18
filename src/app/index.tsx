@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { Layout } from 'app/components/Layout';
-import { HomePage } from 'app/pages/HomePage/Loadable';
+import { InboxPage } from 'app/pages/InboxPage/Loadable';
 import { NotFoundPage } from 'app/pages/NotFoundPage/Loadable';
 import { translations } from 'locales/translations';
 import { GlobalStyle } from 'styles/global-styles';
@@ -24,7 +24,7 @@ export function App() {
   dayjs.locale(i18n.language);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Helmet
         titleTemplate={`%s - ${t(translations.appName)}`}
         defaultTitle={t(translations.appName)}
@@ -38,7 +38,8 @@ export function App() {
 
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<InboxPage />} />
+          {/* <Route path="/contacts" element={<ContactsPage />} /> */}
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />

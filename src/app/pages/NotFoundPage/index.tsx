@@ -19,7 +19,7 @@ export function NotFoundPage() {
         <Title>
           4<span role="img">😢</span>4
         </Title>
-        <Link to="/">{t(translations.routes.home)}</Link>
+        <Link to="/">{t(translations.routes.inbox)}</Link>
         <P>{t(translations.notFound.description)}</P>
       </Wrapper>
     </>

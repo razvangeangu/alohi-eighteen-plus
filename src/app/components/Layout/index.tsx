@@ -1,4 +1,5 @@
 import { NavigationBar } from 'app/components/NavigationBar';
+import { SideBar } from 'app/components/SideBar';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components/macro';
@@ -8,13 +9,25 @@ export function Layout() {
     <>
       <NavigationBar />
 
-      <OutletContainer>
-        <Outlet />
-      </OutletContainer>
+      <Main>
+        <SideBar />
+
+        <OutletContainer>
+          <Outlet />
+        </OutletContainer>
+      </Main>
     </>
   );
 }
 
 const OutletContainer = styled.div`
-  padding-top: 2rem;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 5rem 1rem 1rem;
+`;
+
+const Main = styled.main`
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
 `;

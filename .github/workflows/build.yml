@@ -20,6 +20,8 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install and Build 🔧
+        env:
+          PUBLIC_URL: /alohi-eighteen-plus
         run: |
           yarn install --frozen-lockfile
           yarn build

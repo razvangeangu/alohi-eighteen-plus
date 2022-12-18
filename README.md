@@ -5,3 +5,9 @@
 # alohi-eighteen-plus
 
 An MVP for a web app for a faxes system.
+
+[Try the demo here](https://razvangeangu.github.io/alohi-eighteen-plus)
+
+---
+
+![Screenshot](/docs/screenshot.png)
