@@ -10,4 +10,25 @@ An MVP for a web app for a faxes system.
 
 ---
 
-![Screenshot](/docs/screenshot.png)
+![Screenshot](/docs/screenshot-inbox-dark.png)
+![Screenshot](/docs/screenshot-inbox-light.png)
+![Screenshot](/docs/screenshot-under-construction.png)
+
+## Getting started
+
+Clone the repository, install the dependencies and run the application in your browser.
+
+```zsh
+yarn
+yarn start
+```
+
+> Open localhost:3000 in your favourite browser
+
+## Future work
+
+- Authentication flow
+- Other pages
+- API fetching
+- Offline storage
+- Unit Testing
