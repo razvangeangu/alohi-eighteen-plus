@@ -65,8 +65,13 @@ const Container = styled.div`
 
     th,
     td {
-      border: 0.0625rem solid ${p => p.theme.border};
+      border-bottom: 0.0625rem solid ${p => p.theme.border};
+      border-right: 0.0625rem solid ${p => p.theme.border};
       padding: 0.5rem;
+
+      &:first-child {
+        border-left: 0.0625rem solid ${p => p.theme.border};
+      }
     }
 
     tr {
@@ -83,7 +88,10 @@ const Container = styled.div`
       }
     }
 
+    /* stylelint-disable-next-line no-descending-specificity */
     th {
+      border-top: 0.0625rem solid ${p => p.theme.border};
+
       &:first-child {
         border-top-left-radius: 0.5rem;
       }
