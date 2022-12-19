@@ -1,6 +1,7 @@
 import { translations } from 'locales/translations';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { isSystemDark } from 'styles/theme/utils';
 
@@ -9,10 +10,14 @@ export function NavigationBar() {
 
   return (
     <Container>
-      <Logo
-        alt={t(translations.appName)}
-        src={`${process.env.PUBLIC_URL}/logo${isSystemDark ? '-dark' : ''}.png`}
-      />
+      <Link to="/">
+        <Logo
+          alt={t(translations.appName)}
+          src={`${process.env.PUBLIC_URL}/logo${
+            isSystemDark ? '-dark' : ''
+          }.png`}
+        />
+      </Link>
     </Container>
   );
 }
