@@ -17,7 +17,7 @@ export function SideBar() {
     () => [
       {
         title: t(translations.routes.inbox),
-        path: '/inbox',
+        path: '/',
         icon: InboxSvg,
       },
       {

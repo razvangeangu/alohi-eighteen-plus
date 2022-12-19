@@ -2,13 +2,17 @@ import { translations } from 'locales/translations';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
+import { isSystemDark } from 'styles/theme/utils';
 
 export function NavigationBar() {
   const { t } = useTranslation();
 
   return (
     <Container>
-      <Logo>{t(translations.appName)}</Logo>
+      <Logo
+        alt={t(translations.appName)}
+        src={`${process.env.PUBLIC_URL}/logo${isSystemDark ? '-dark' : ''}.png`}
+      />
     </Container>
   );
 }
@@ -20,9 +24,8 @@ const Container = styled.nav`
   border-bottom: 0.0625rem solid ${p => p.theme.border};
   box-sizing: border-box;
   display: flex;
-  height: 2rem;
   justify-content: space-between;
-  padding: 2rem 1.25rem;
+  padding: 1rem 1.25rem;
   position: fixed;
   width: 100%;
 
@@ -31,8 +34,7 @@ const Container = styled.nav`
   }
 `;
 
-const Logo = styled.div`
-  color: ${p => p.theme.primary};
-  font-size: 1.25rem;
-  font-weight: 700;
+const Logo = styled.img`
+  display: flex;
+  height: 2rem;
 `;
