@@ -260,7 +260,7 @@ export function UnderConstruction() {
         viewBox="0 0 500 500"
         fill="none"
         id="general"
-        style={{ opacity: 0 }}
+        // style={{ opacity: 0 }}
       >
         <g id="Frame 3">
           <rect width="500" height="500" fill="transparent" />
