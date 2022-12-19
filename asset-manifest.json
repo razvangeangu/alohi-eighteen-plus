@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/alohi-eighteen-plus/static/css/main.f51d5156.css",
-    "main.js": "/alohi-eighteen-plus/static/js/main.144967e5.js",
+    "main.js": "/alohi-eighteen-plus/static/js/main.8dd55096.js",
     "static/js/519.5899d797.chunk.js": "/alohi-eighteen-plus/static/js/519.5899d797.chunk.js",
     "static/js/935.0ded1032.chunk.js": "/alohi-eighteen-plus/static/js/935.0ded1032.chunk.js",
     "static/js/243.8bb87b14.chunk.js": "/alohi-eighteen-plus/static/js/243.8bb87b14.chunk.js",
@@ -19,6 +19,6 @@
   },
   "entrypoints": [
     "static/css/main.f51d5156.css",
-    "static/js/main.144967e5.js"
+    "static/js/main.8dd55096.js"
   ]
 }
