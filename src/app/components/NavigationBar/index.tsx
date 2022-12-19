@@ -28,6 +28,7 @@ const Container = styled.nav`
   padding: 1rem 1.25rem;
   position: fixed;
   width: 100%;
+  z-index: 99;
 
   @supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
     backdrop-filter: saturate(50%) blur(20px);

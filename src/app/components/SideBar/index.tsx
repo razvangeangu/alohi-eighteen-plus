@@ -7,11 +7,13 @@ import dayjs from 'dayjs';
 import { translations } from 'locales/translations';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components/macro';
+import { Link, useLocation } from 'react-router-dom';
+import styled, { css } from 'styled-components/macro';
 
 export function SideBar() {
   const { t } = useTranslation();
+
+  const { pathname: currentPath } = useLocation();
 
   const dashboardRoutes = useMemo(
     () => [
@@ -56,7 +58,12 @@ export function SideBar() {
         <RoutesTitle>{t(translations.routes.dashboard)}</RoutesTitle>
         <Routes>
           {dashboardRoutes.map(({ title, path, icon }) => (
-            <Route key={path} as={Link} to={path}>
+            <Route
+              key={path}
+              as={Link}
+              to={path}
+              selected={path === currentPath}
+            >
               <Icon as={icon} />
               <span>{title}</span>
             </Route>
@@ -66,7 +73,12 @@ export function SideBar() {
         <RoutesTitle>{t(translations.routes.account)}</RoutesTitle>
         <Routes>
           {profileRoutes.map(({ title, path, icon }) => (
-            <Route key={path} as={Link} to={path}>
+            <Route
+              key={path}
+              as={Link}
+              to={path}
+              selected={path === currentPath}
+            >
               <Icon as={icon} />
               <span>{title}</span>
             </Route>
@@ -86,7 +98,7 @@ export function SideBar() {
 
 const Container = styled.div`
   background-color: ${p => p.theme.card.background};
-  border-right: 1px solid ${p => p.theme.border};
+  border-right: 0.0625rem solid ${p => p.theme.border};
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -102,14 +114,28 @@ const Routes = styled.div`
   padding: 0;
 `;
 
-const Route = styled.div`
+const selectedRoute = css`
+  &::after {
+    background-color: ${p => p.theme.primary};
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0.0625rem;
+  }
+`;
+
+const Route = styled.div<{ selected: boolean }>`
   align-content: center;
   align-items: center;
   background-color: ${p => p.theme.card.background};
-  border-bottom: 1px solid ${p => p.theme.border};
+  border-bottom: 0.0625rem solid ${p => p.theme.border};
   box-sizing: border-box;
   display: flex;
   padding: 0.5rem 1rem;
+  position: relative;
   width: 100%;
 
   &:hover {
@@ -117,11 +143,14 @@ const Route = styled.div`
   }
 
   &:first-child {
-    border-top: 1px solid ${p => p.theme.border};
+    border-top: 0.0625rem solid ${p => p.theme.border};
   }
+
+  ${p => (p.selected ? selectedRoute : '')}
 `;
 
 const Footer = styled.div`
+  border-top: 0.0625rem solid ${p => p.theme.border};
   display: flex;
   flex-direction: column;
   font-size: 0.75rem;
@@ -132,6 +161,7 @@ const Flex = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
+  overflow-y: auto;
 `;
 
 const Icon = styled.svg`

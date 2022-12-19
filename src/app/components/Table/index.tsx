@@ -65,7 +65,7 @@ const Container = styled.div`
 
     th,
     td {
-      border: 1px solid ${p => p.theme.border};
+      border: 0.0625rem solid ${p => p.theme.border};
       padding: 0.5rem;
     }
 
@@ -92,15 +92,5 @@ const Container = styled.div`
         border-top-right-radius: 0.5rem;
       }
     }
-
-    /* tr:first-child td:first-child {
-      border: 2px solid orange;
-      border-bottom-left-radius: 10px;
-    }
-
-    tr:last-child td:last-child {
-      border: 2px solid green;
-      border-bottom-right-radius: 10px;
-    } */
   }
 `;
