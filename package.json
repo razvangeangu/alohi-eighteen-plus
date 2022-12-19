@@ -73,6 +73,7 @@
     "react-helmet-async": "1.3.0",
     "react-i18next": "12.1.1",
     "react-router-dom": "6.4.5",
+    "react-virtual": "2.10.4",
     "sanitize.css": "13.0.0",
     "styled-components": "5.3.6",
     "web-vitals": "3.1.0"

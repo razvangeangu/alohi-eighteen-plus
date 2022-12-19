@@ -2,9 +2,11 @@ import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
+  Row,
   useReactTable,
 } from '@tanstack/react-table';
 import React from 'react';
+import { useVirtual } from 'react-virtual';
 import styled from 'styled-components/macro';
 
 export interface TableProps {
@@ -17,37 +19,85 @@ export function Table({ data, columns }: TableProps) {
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    debugTable: true,
   });
 
+  const tableContainerRef = React.useRef<HTMLDivElement>(null);
+
+  const { rows } = table.getRowModel();
+  const rowVirtualizer = useVirtual({
+    parentRef: tableContainerRef,
+    size: rows.length,
+    overscan: 10,
+  });
+  const { virtualItems: virtualRows, totalSize } = rowVirtualizer;
+
+  const paddingTop = virtualRows.length > 0 ? virtualRows?.[0]?.start || 0 : 0;
+  const paddingBottom =
+    virtualRows.length > 0
+      ? totalSize - (virtualRows?.[virtualRows.length - 1]?.end || 0)
+      : 0;
+
   return (
-    <Container>
+    <Container ref={tableContainerRef}>
       <table>
         <thead>
           {table.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map(header => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
+                <th
+                  key={header.id}
+                  colSpan={header.colSpan}
+                  style={{
+                    /* stylelint-disable-next-line function-no-unknown */
+                    width: header.getSize(),
+                  }}
+                >
+                  {header.isPlaceholder ? null : (
+                    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+                    <div
+                      {...{
+                        className: header.column.getCanSort()
+                          ? 'cursor-pointer select-none'
+                          : '',
+                        onClick: header.column.getToggleSortingHandler(),
+                      }}
+                    >
+                      {flexRender(
                         header.column.columnDef.header,
                         header.getContext(),
                       )}
+                    </div>
+                  )}
                 </th>
               ))}
             </tr>
           ))}
         </thead>
         <tbody>
-          {table.getRowModel().rows.map(row => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map(cell => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
+          {paddingTop > 0 && (
+            <tr>
+              <td style={{ height: `${paddingTop}px` }} />
             </tr>
-          ))}
+          )}
+          {virtualRows.map(virtualRow => {
+            const row = rows[virtualRow.index] as Row<typeof data[0]>;
+
+            return (
+              <tr key={row.id}>
+                {row.getVisibleCells().map(cell => (
+                  <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
+          {paddingBottom > 0 && (
+            <tr>
+              <td style={{ height: `${paddingBottom}px` }} />
+            </tr>
+          )}
         </tbody>
       </table>
     </Container>
@@ -55,6 +105,11 @@ export function Table({ data, columns }: TableProps) {
 }
 
 const Container = styled.div`
+  border: 0.0625rem solid ${p => p.theme.border};
+  border-radius: 0.5rem;
+  height: inherit;
+  overflow: auto;
+
   table {
     background-color: ${p => p.theme.card.background};
     border-collapse: separate;
@@ -63,42 +118,17 @@ const Container = styled.div`
     table-layout: fixed;
     width: 100%;
 
+    thead {
+      background-color: ${p => p.theme.card.background};
+      position: sticky;
+      top: 0;
+    }
+
     th,
     td {
       border-bottom: 0.0625rem solid ${p => p.theme.border};
       border-right: 0.0625rem solid ${p => p.theme.border};
       padding: 0.5rem;
-
-      &:first-child {
-        border-left: 0.0625rem solid ${p => p.theme.border};
-      }
-    }
-
-    tr {
-      &:last-child {
-        td {
-          &:first-child {
-            border-bottom-left-radius: 0.5rem;
-          }
-
-          &:last-child {
-            border-bottom-right-radius: 0.5rem;
-          }
-        }
-      }
-    }
-
-    /* stylelint-disable-next-line no-descending-specificity */
-    th {
-      border-top: 0.0625rem solid ${p => p.theme.border};
-
-      &:first-child {
-        border-top-left-radius: 0.5rem;
-      }
-
-      &:last-child {
-        border-top-right-radius: 0.5rem;
-      }
     }
   }
 `;

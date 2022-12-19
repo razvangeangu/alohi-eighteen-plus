@@ -19,7 +19,11 @@ export function InboxPage() {
   const columns = useMemo(
     () => [
       columnHelper.accessor('status', {
-        cell: info => info.getValue(),
+        cell: info =>
+          (info.getValue() || '')
+            .split('_')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' '),
         header: () => <span>{t(translations.inbox.table.status)}</span>,
       }),
       columnHelper.accessor('from', {
@@ -65,4 +69,7 @@ export function InboxPage() {
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  height: calc(100vh - 4.0625rem - 2rem);
+  overflow: hidden;
+`;

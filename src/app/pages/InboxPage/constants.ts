@@ -2,7 +2,7 @@ import { Fax } from 'app/components/Table/types';
 
 const generateRow = () =>
   ({
-    status: 'success',
+    status: Math.floor(Math.random() * 100) % 10 !== 0 ? 'success' : 'failed',
     from: `+447${Math.floor(Math.random() * 1000000000)}`,
     to: `+12${Math.floor(Math.random() * 1000000000)}`,
     start_time: '2020-03-27 11:29:21',
