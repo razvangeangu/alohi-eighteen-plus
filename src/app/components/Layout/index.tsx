@@ -24,6 +24,7 @@ const OutletContainer = styled.div`
   height: 100vh;
   overflow-y: auto;
   padding: 5rem 1rem 1rem;
+  width: 100%;
 `;
 
 const Main = styled.main`

@@ -123,7 +123,7 @@ const selectedRoute = css`
     left: 0;
     position: absolute;
     top: 0;
-    width: 0.0625rem;
+    width: 0.125rem;
   }
 `;
 

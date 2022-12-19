@@ -1,3 +1,4 @@
+import { UnderConstruction } from 'app/components/UnderConstruction';
 import { translations } from 'locales/translations';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -13,9 +14,18 @@ export function SpamPage() {
         <title>{t(translations.routes.spam)}</title>
       </Helmet>
 
-      <Container>Spam Page</Container>
+      <Container>
+        <UnderConstruction />
+      </Container>
     </>
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+`;
