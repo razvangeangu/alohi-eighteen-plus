@@ -75,6 +75,7 @@ const Container = styled.div`
           &:first-child {
             border-bottom-left-radius: 0.5rem;
           }
+
           &:last-child {
             border-bottom-right-radius: 0.5rem;
           }

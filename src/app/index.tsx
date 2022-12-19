@@ -13,8 +13,13 @@ import { useTranslation } from 'react-i18next';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { Layout } from 'app/components/Layout';
+import { ContactsPage } from 'app/pages/ContactsPage/Loadable';
 import { InboxPage } from 'app/pages/InboxPage/Loadable';
 import { NotFoundPage } from 'app/pages/NotFoundPage/Loadable';
+import { NumbersPage } from 'app/pages/NumbersPage/Loadable';
+import { SentPage } from 'app/pages/SentPage/Loadable';
+import { SpamPage } from 'app/pages/SpamPage/Loadable';
+
 import { translations } from 'locales/translations';
 import { GlobalStyle } from 'styles/global-styles';
 
@@ -39,7 +44,10 @@ export function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<InboxPage />} />
-          {/* <Route path="/contacts" element={<ContactsPage />} /> */}
+          <Route path="/sent" element={<SentPage />} />
+          <Route path="/spam" element={<SpamPage />} />
+          <Route path="/numbers" element={<NumbersPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
